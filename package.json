@@ -2,9 +2,9 @@
   "name": "first_project",
   "version": "1.0.0",
   "description": "my first node.js application",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "start": "./node_modules/nodemon/bin/nodemon.js server.js",
+    "start": "./node_modules/nodemon/bin/nodemon.js src/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Muslim Maliukov",
@@ -34,6 +34,6 @@
     "socket.io": "^2.0.4"
   },
   "devDependencies": {
-    "eslint": "^5.15.0"
+    "eslint": "^5.16.0"
   }
 }

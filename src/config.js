@@ -1,0 +1,47 @@
+//load .env config (doenv library) process.env.CONFIG_NAME
+require('dotenv').load();
+
+const env = process.env.NODE_ENV; // 'dev' or 'test'
+
+const dev = {
+    app: {
+        port: parseInt(process.env.DEV_APP_PORT) || 3000,
+        botToken: process.env.BOT_TOKEN,
+        sslConnect: process.env.SSL_CONNECT,
+        //files static path server.js include
+        staticPath: 'public',
+        url: 'https://cfa0f8ac.ngrok.io/',
+        jwt: {
+            secretOrKey: process.env.SECRET_OR_KEY
+        },
+    },
+    db: {
+        host: process.env.DEV_DB_HOST || 'localhost',
+        port: parseInt(process.env.DEV_DB_PORT) || 27017,
+        name: process.env.DEV_DB_NAME || 'db'
+    },
+    pdb: {
+        host: process.env.P_DB_HOST || 'localhost',
+        dbname: process.env.P_DB_NAME || 'root',
+        user: process.env.P_DB_USER || 'root',
+        pass: process.env.P_DB_PASS || 'root'
+    },
+};
+const test = {
+    app: {
+        port: parseInt(process.env.TEST_APP_PORT) || 3000
+    },
+    db: {
+        host: process.env.TEST_DB_HOST || 'localhost',
+        port: parseInt(process.env.TEST_DB_PORT) || 27017,
+        name: process.env.TEST_DB_NAME || 'test'
+    }
+};
+
+const config = {
+    dev,
+    test
+};
+//константа конфиг принимает значение переменной окружения которая прописанна в файле .env
+//установляваем библитеку dote.env для работы с переменными окружения
+module.exports = config[env];

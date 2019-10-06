@@ -4,13 +4,13 @@ const route = app.Router();
 const bodyParser = require('body-parser');
 const cors = require('cors');
 //const Artist = require('../controllers/artists');
-const Admin = require('../http/controllers/admin');
-const BotUsers = require('../http/controllers/botUsers');
-const LittleBot = require('../http/controllers/LittleBot');
-const Auth = require('../http/controllers/Auth');
+// const Admin = require('../http/controllers/admin');
+// const BotUsers = require('../http/controllers/botUsers');
+// const LittleBot = require('../http/controllers/LittleBot');
+// const Auth = require('../http/controllers/Auth');
 const multer = require('multer');
-const {checkAuth} = require('../http/middlewares/checkAuth');
-const {validateRegister, validateLogin, validateRoles} = require('../http/middlewares/validate');
+// const {checkAuth} = require('../http/middlewares/checkAuth');
+// const {validateRegister, validateLogin, validateRoles} = require('../http/middlewares/validate');
 
 function rot() {
     let routes = route.stack;
@@ -50,20 +50,20 @@ route.options('/', cors());
 route.options('/botUsers', cors());
 route.options('/botUsers:chatId', cors());
 
-route.get('/', checkAuth, Admin.resPage);
-//route.post('/setGood', checkAuth, upload.single('image'), Admin.setGood);
-//botUsers controller
-route.get('/admin', checkAuth, BotUsers.getAllUsers);
-route.get('/botUsers', checkAuth, BotUsers.getAllUsers);
-route.get('/userMessages/:chatId', checkAuth, BotUsers.getUserMessages);
-route.get('/userAdminMessages/:chatId', checkAuth, Admin.getUserAdminMessages);
-route.post('/deleteMessage', checkAuth, LittleBot.deleteMessage);
-
-route.post('/login', validateLogin(), Auth.login);
-
-route.post('/register', validateRegister(), Auth.register);
-route.post('/createRole', checkAuth, validateRoles(), Auth.createRole);
-route.get('/getRoutes', Auth.getAllRoutes);
+// route.get('/', checkAuth, Admin.resPage);
+// //route.post('/setGood', checkAuth, upload.single('image'), Admin.setGood);
+// //botUsers controller
+// route.get('/admin', checkAuth, BotUsers.getAllUsers);
+// route.get('/botUsers', checkAuth, BotUsers.getAllUsers);
+// route.get('/userMessages/:chatId', checkAuth, BotUsers.getUserMessages);
+// route.get('/userAdminMessages/:chatId', checkAuth, Admin.getUserAdminMessages);
+// route.post('/deleteMessage', checkAuth, LittleBot.deleteMessage);
+//
+// route.post('/login', validateLogin(), Auth.login);
+//
+// route.post('/register', validateRegister(), Auth.register);
+// route.post('/createRole', checkAuth, validateRoles(), Auth.createRole);
+// route.get('/getRoutes', Auth.getAllRoutes);
 
 // route.post('/logout', (req, res) => {
 //     res.clearCookie('token');
